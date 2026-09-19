@@ -29,19 +29,10 @@ let W=innerWidth,H=innerHeight;cv.width=W*devicePixelRatio;cv.height=H*devicePix
 const N=G.nodes,IDX={};N.forEach((n,i)=>IDX[n.id]=i);
 const col={book:'#7a5ac0',person:'#c9607e',place:'#3a9a86',theme:'#b08d3f'};
 const nodeR=n=>n.g==='book'?4+Math.sqrt(n.w)/6:3+Math.sqrt(n.w)/2.2;
-// init positions: circle + jitter
-N.forEach((n,i)=>{const a=i/N.length*2*Math.PI,r=n.g==='book'?220:120+300*Math.random();n.x=W/2+r*Math.cos(a);n.y=H/2+r*Math.sin(a)});
-let tx=0,ty=0,sc=1,scale=sc,ox=tx,oy=ty;
+// static precomputed layout — no runtime physics
+let scale=0.45,ox=W/2,oy=H/2;
 const E=G.edges.map(e=>({a:IDX[e[0]],b:IDX[e[1]],w:e[2]}));
 let sel=null,hl=new Set(),hlE=new Set();
-function physics(){ // simple springs + repulsion (cheap, capped)
-  const k=0.02;
-  for(const e of E){const A=N[e.a],B=N[e.b];let dx=B.x-A.x,dy=B.y-A.y,d=Math.hypot(dx,dy)||1;const f=(d-60)*k*e.w/d;A.x+=dx*f;A.y+=dy*f;B.x-=dx*f;B.y-=dy*f}
-  for(let i=0;i<N.length;i++){const A=N[i];
-    for(let j=i+1;j<N.length;j++){const B=N[j];let dx=B.x-A.x,dy=B.y-A.y,d2=dx*dx+dy*dy;if(d2<2500&&d2>0){const d=Math.sqrt(d2),f=8/d;A.x-=dx*f;A.y-=dy*f;B.x+=dx*f;B.y+=dy*f}}
-    A.x+=(W/2-A.x)*0.001;A.y+=(H/2-A.y)*0.001}
-}
-let frames=0;const anim=setInterval(()=>{physics();if(++frames>240)clearInterval(anim);draw()},16);
 function draw(){ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);ctx.clearRect(0,0,W,H);
 ctx.save();ctx.translate(ox,oy);ctx.scale(scale,scale);
 for(const e of E){const A=N[e.a],B=N[e.b];const on=!sel||hl.has(e.a)||hl.has(e.b);
