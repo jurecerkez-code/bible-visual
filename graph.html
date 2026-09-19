@@ -34,7 +34,7 @@ let minX=Math.min(...N.map(n=>n.x)),maxX=Math.max(...N.map(n=>n.x)),minY=Math.mi
 const BK=N.filter(n=>n.g==='book');
 const bcx=BK.reduce((s,n)=>s+n.x,0)/BK.length, bcy=BK.reduce((s,n)=>s+n.y,0)/BK.length;
 const bspread=Math.max(...BK.map(n=>Math.max(Math.abs(n.x-bcx),Math.abs(n.y-bcy))));
-let scale=Math.min(W,H)/(bspread*2+140);scale=Math.max(scale,0.12);
+let scale=Math.min(W,H)/(bspread*2+240);scale=Math.max(scale,0.08);
 let ox=W/2-bcx*scale, oy=H/2-bcy*scale;
 const E=G.edges.map(e=>({a:IDX[e[0]],b:IDX[e[1]],w:e[2]}));
 let sel=null,hl=new Set(),hlE=new Set();
@@ -46,7 +46,7 @@ ctx.lineWidth=on?Math.max(.5,e.w*.35):.3;ctx.beginPath();ctx.moveTo(A.x,A.y);ctx
 for(const n of N){const i=IDX[n.id];const on=!sel||hl.has(i);
 ctx.globalAlpha=on?1:.15;ctx.fillStyle=col[n.g];ctx.beginPath();ctx.arc(n.x,n.y,nodeR(n),0,7);ctx.fill();
 if(sel===i){ctx.strokeStyle='#c9b988';ctx.lineWidth=2;ctx.stroke()}
-if(on&&(n.g==='book'||hl.has(i)||sel===i||scale>1.4)){ctx.globalAlpha=on?.9:.15;ctx.fillStyle='#9a92b8';ctx.font=(n.g==='book'?11:10)+'px Georgia';ctx.textAlign='center';ctx.fillText(n.label,n.x,n.y-nodeR(n)-3)}}
+if(on&&(n.g==='book'||hl.has(i)||sel===i||scale>1.8)){ctx.globalAlpha=on?.9:.15;ctx.fillStyle='#9a92b8';ctx.font=(n.g==='book'?11:10)+'px Georgia';ctx.textAlign='center';ctx.fillText(n.label,n.x,n.y-nodeR(n)-3)}}
 ctx.restore();ctx.globalAlpha=1}
 function toWorld(px,py){return[(px-ox)/scale,(py-oy)/scale]}
 function hit(px,py){const[wx,wy]=toWorld(px,py);let best=null,bd=18;
