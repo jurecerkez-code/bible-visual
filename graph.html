@@ -31,8 +31,11 @@ const col={book:'#7a5ac0',person:'#c9607e',place:'#3a9a86',theme:'#b08d3f'};
 const nodeR=n=>n.g==='book'?4+Math.sqrt(n.w)/6:3+Math.sqrt(n.w)/2.2;
 // static precomputed layout — no runtime physics
 let minX=Math.min(...N.map(n=>n.x)),maxX=Math.max(...N.map(n=>n.x)),minY=Math.min(...N.map(n=>n.y)),maxY=Math.max(...N.map(n=>n.y));
-const gw=maxX-minX,gh=maxY-minY;let scale=Math.min((W-30)/(gw+60),(H*0.62)/(gh+60));scale=Math.max(scale,0.1);
-let ox=W/2-(minX+maxX)/2*scale, oy=H/2-(minY+maxY)/2*scale;
+const BK=N.filter(n=>n.g==='book');
+const bcx=BK.reduce((s,n)=>s+n.x,0)/BK.length, bcy=BK.reduce((s,n)=>s+n.y,0)/BK.length;
+const bspread=Math.max(...BK.map(n=>Math.max(Math.abs(n.x-bcx),Math.abs(n.y-bcy))));
+let scale=Math.min(W,H)/(bspread*2+140);scale=Math.max(scale,0.12);
+let ox=W/2-bcx*scale, oy=H/2-bcy*scale;
 const E=G.edges.map(e=>({a:IDX[e[0]],b:IDX[e[1]],w:e[2]}));
 let sel=null,hl=new Set(),hlE=new Set();
 function draw(){ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);ctx.clearRect(0,0,W,H);
