@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>The Bible — Sacred Data</title><style>
+<title>Biblija — Sveta Povjest u Podacima</title><style>
 :root{--bg:#0c0a12;--card:#171221;--line:#2c2547;--gold:#c9b988;--txt:#e8e2d5;--dim:#9a92b8;--ot:#7a5ac0;--nt:#3a9a86}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{max-width:100vw;overflow-x:clip}
@@ -56,46 +56,46 @@ button.gl{background:none;border:0;color:#7fb0d8;font-family:Georgia;font-size:1
 <div class="hero">
   <div class="star">✦ ✦ ✦</div>
   <h1>THE BIBLE</h1>
-  <div class="sub">The Word, mapped.<br>Every person, place and theme — cross-referenced.</div>
+  <div class="sub">Riječ, preslikana u zemljovid.<br>Svaka osoba, svaki kraj i svaka tema — međusobno povezani u jednu svetu povjest.</div>
   <div class="stats">
-    <div class="st"><b>73</b><span>books</span></div>
-    <div class="st"><b>1,294</b><span>chapters</span></div>
-    <div class="st"><b>34,917</b><span>verses</span></div>
-    <div class="st"><b>28,791</b><span>cross-links</span></div>
+    <div class="st"><b>73</b><span>knjiga</span></div>
+    <div class="st"><b>1,294</b><span>poglavlja</span></div>
+    <div class="st"><b>34,917</b><span>stihova</span></div>
+    <div class="st"><b>28,791</b><span>veza</span></div>
   </div>
 </div>
 
 <div class="page on" id="p-home">
-  <h2>✦ Word Frequency</h2>
+  <h2>✦ Riječ po Učestalosti</h2>
   <div class="cloud" id="cloud"></div>
-  <div class="leg">60 most significant words of Scripture — tap the graph link below to see them interlinked</div>
-  <h2>✦ The 73 Books</h2>
+  <div class="leg">Pedesetak najvažnijih riječi Svetoga Pisma — dodirni poveznicu grafa niže pa ih vidi spojene</div>
+  <h2>✦ Sedamdeset i tri Knjige</h2>
   <div class="bars" id="bars"></div>
-  <div class="leg">purple = Old Testament · teal = New Testament — tap a bar</div>
-  <h2>✦ Verses of Power</h2>
+  <div class="leg">ljubičasto = Stari Zavjet · tirkiz = Novi Zavjet — dodirni stupac</div>
+  <h2>✦ Stihovi Snage</h2>
   <div id="kv"></div>
   <div class="more" id="kv-more"></div>
 </div>
 
 <div class="page" id="p-time">
-  <h2>✦ The Great Story — <span id="tlcount" style="color:#6d6590"></span></h2>
+  <h2>✦ Velika Povjest — <span id="tlcount" style="color:#6d6590"></span></h2>
   <div class="chips" id="tlc"></div>
   <div id="tll"></div>
   <div class="more" id="tl-more"></div>
 </div>
 
-<div class="page" id="p-people"><h2>✦ People of the Book — <span id="cp" style="color:#6d6590"></span></h2><input id="qp" placeholder="Search people…"><div id="lp"></div><div class="more" id="pp-more"></div></div>
-<div class="page" id="p-places"><h2>✦ Holy Places — <span id="cl" style="color:#6d6590"></span></h2><input id="ql" placeholder="Search places…"><div id="ll"></div><div class="more" id="pl-more"></div></div>
-<div class="page" id="p-themes"><h2>✦ Divine Themes — <span id="ct" style="color:#6d6590"></span></h2><input id="qt" placeholder="Search themes…"><div id="lt"></div><div class="more" id="pt-more"></div></div>
+<div class="page" id="p-people"><h2>✦ Ljudi Knjige — <span id="cp" style="color:#6d6590"></span></h2><input id="qp" placeholder="Traži osobe…"><div id="lp"></div><div class="more" id="pp-more"></div></div>
+<div class="page" id="p-places"><h2>✦ Sveti Krajevi — <span id="cl" style="color:#6d6590"></span></h2><input id="ql" placeholder="Traži krajeve…"><div id="ll"></div><div class="more" id="pl-more"></div></div>
+<div class="page" id="p-themes"><h2>✦ Božanske Teme — <span id="ct" style="color:#6d6590"></span></h2><input id="qt" placeholder="Traži teme…"><div id="lt"></div><div class="more" id="pt-more"></div></div>
 
 <div id="dlg" onclick="dlgEl.classList.remove('on')"><div id="dlgc"><span id="x" onclick="dlgEl.classList.remove('on')">×</span><div id="dlgb"></div></div></div>
 
 <nav id="nav">
-  <button class="active" data-p="home"><span class="ic">✦</span>Home</button>
-  <button data-p="time"><span class="ic">⏳</span>Story</button>
-  <button data-p="people"><span class="ic">☰</span>People</button>
-  <button data-p="places"><span class="ic">◈</span>Places</button>
-  <button data-p="themes"><span class="ic">❋</span>Themes</button>
+  <button class="active" data-p="home"><span class="ic">✦</span>Dom</button>
+  <button data-p="time"><span class="ic">⏳</span>Povjest</button>
+  <button data-p="people"><span class="ic">☰</span>Ljudi</button>
+  <button data-p="places"><span class="ic">◈</span>Krajevi</button>
+  <button data-p="themes"><span class="ic">❋</span>Teme</button>
 </nav>
 
 <script>
@@ -112,7 +112,7 @@ const mx=D.wf[0].n,mn=D.wf[D.wf.length-1].n;
 $('cloud').innerHTML=D.wf.map(w=>{const s=13+24*Math.sqrt((w.n-mn+1)/(mx-mn+1));return `<span style="font-size:${s}px;color:hsl(${48-48*(w.n-mn)/(mx-mn)},58%,72%)">${w.w}</span>`}).join('');
 const mv=Math.max(...D.books.map(b=>b.v));
 $('bars').innerHTML=D.books.map(b=>`<div class="bar ${b.t==='NT'?'nt':''}" style="height:${b.v/mv*100}%" onclick="book(${D.books.indexOf(b)})"></div>`).join('');
-function book(i){const b=D.books[i];openDetail({title:b.id,html:`<p>${b.ch} chapters · ${b.v} verses · ${b.w.toLocaleString()} words</p><div class="lab">testament</div><p>${b.t} · book ${i+1} of 73 in canon order</p><div class="lab">explore</div><p><button class="gl" onclick="goGraph()">open in the living graph →</button></p>`})}
+function book(i){const b=D.books[i];openDetail({title:b.id,html:`<p>${b.ch} chapters · ${b.v} verses · ${b.w.toLocaleString()} words</p><div class="lab">zavjet</div><p>${b.t} · ${i+1}. knjiga od 73 u kanonskom redu</p><div class="lab">istraži</div><p><button class="gl" onclick="goGraph()">otvori u živom grafu →</button></p>`})}
 
 /* paginated list factory */
 function pagedList(lid,moreId,items,pageSize,html,caption){
@@ -122,7 +122,7 @@ function pagedList(lid,moreId,items,pageSize,html,caption){
     const slice=items.slice(0,n);
     $(lid).innerHTML=slice.map((it,idx)=>html(it,idx)).join('');
     const caps=[50,100,200,items.length];
-    $(moreId).innerHTML=caps.filter((c,i)=>c>=(n<50?50:n+1)&&c<=items.length).map(c=>`<button onclick="window.__pg('${lid}',${c})" class="${c===n?'on':''}">Show ${c===items.length?'all':c}</button>`).join('');
+    $(moreId).innerHTML=caps.filter((c,i)=>c>=(n<50?50:n+1)&&c<=items.length).map(c=>`<button onclick="window.__pg('${lid}',${c})" class="${c===n?'on':''}">Prikaži ${c===items.length?'sve':c}</button>`).join('');
   }
   window.__pg=(lid,c)=>{draw(c);$(lid).scrollIntoView({behavior:'smooth',block:'start'})};
   draw(pageSize);
@@ -134,12 +134,12 @@ pagedList('kv','kv-more',D.kv,25,(k,i)=>`<div class="item" data-k="kv" data-i="$
 
 /* timeline */
 let filt='all';
-const chips=['all','Old Testament','New Testament','miracles','high certainty'];
-$('tlc').innerHTML=chips.map(c=>`<span class="chip${c==='all'?' on':''}" onclick="setF('${c}')">${c}</span>`).join('');
+const chips=['sve','Stari Zavjet','Novi Zavjet','čudesa','potvrđeno'];
+$('tlc').innerHTML=chips.map(c=>`<span class="chip${c==='sve'?' on':''}" onclick="setF('${c}')">${c}</span>`).join('');
 let tlFiltered=D.tl;
 window.__tlF=()=>tlFiltered;
 function setF(c){filt=c;document.querySelectorAll('#tlc .chip').forEach(x=>x.classList.toggle('on',x.textContent===c));
-tlFiltered=D.tl.filter(t=>filt==='all'||(filt==='Old Testament'&&t.s<0)||(filt==='New Testament'&&t.s>0&&t.s<9999)||(filt==='high certainty'&&t.c==='high')||(filt==='miracles'&&/miracle|heal|resurrect|sea|angel|fire|plague|parted|man na|water/i.test(t.e)));
+tlFiltered=D.tl.filter(t=>filt==='sve'||(filt==='Stari Zavjet'&&t.s<0)||(filt==='Novi Zavjet'&&t.s>0&&t.s<9999)||(filt==='potvrđeno'&&t.c==='high')||(filt==='miracles'&&/miracle|heal|resurrect|sea|angel|fire|plague|parted|man na|water/i.test(t.e)));
 renderTL()}
 function renderTL(){pagedList('tll','tl-more',tlFiltered,50,(t,i)=>`<div class="item" data-k="tl" data-i="${i}"><span class="t">${esc(t.d)||'—'}</span><div class="d">${esc(t.e)}</div><div class="m">${esc(t.b)}</div></div>`,50);
 $('tlcount').textContent=tlFiltered.length+' events'}
@@ -150,7 +150,7 @@ function searchData(pid,qid,lid,moreId,items,cardFn,psz){
   const q=$(qid);
   function run(keepPage){const f=q.value.toLowerCase();
     const xs=items.filter(x=>(x.n+' '+(x.r||x.d||'')+' '+(x.tr||[]).join(' ')).toLowerCase().includes(f));
-    document.querySelector('#p-'+pid+' h2 span').textContent=xs.length+(f?' found':' total');
+    document.querySelector('#p-'+pid+' h2 span').textContent=xs.length+(f?' nađeno':' ukupno');
     if(!keepPage||!window['__n_'+lid])pagedList(lid,moreId,xs,50,cardFn,50);
     else{const cur=window['__n_'+lid];window.__pg(lid,cur)}}
   q.addEventListener('input',()=>run(false));run(false)}
@@ -162,14 +162,14 @@ function goGraph(){location.href='graph.html'}
 function openDetail(o){$('dlgb').innerHTML=`<h3>${o.title}</h3>${o.html}`;$('dlg').classList.add('on')}
 function dlg(title,body){openDetail({title:title,html:body})}
 window.dlg=dlg;window.goGraph=goGraph;
-const GL='<div class="lab">explore</div><p><button class="gl" onclick="goGraph()">open in the living graph →</button></p>';
+const GL='<div class="lab">istraži</div><p><button class="gl" onclick="goGraph()">otvori u živom grafu →</button></p>';
 document.body.addEventListener('click',e=>{
   const card=e.target.closest('.item[data-k]');if(!card)return;
   const k=card.dataset.k,i=+card.dataset.i;
-  if(k==='kv'){const v=D.kv[i];openDetail({title:v.ref,html:'<p class="verse">\u201c'+esc(v.tx)+'\u201d</p><div class="lab">why it matters</div><p>'+esc(v.w)+'</p>'})}
-  else if(k==='tl'){const t=window.__tlF()[i];openDetail({title:t.d||'Event',html:'<p>'+esc(t.e)+'</p><div class="lab">source</div><p style="color:var(--dim)">'+esc(t.b)+' · '+esc(t.c)+' certainty</p>'})}
-  else if(k==='people'){const p=D.people[i];openDetail({title:p.n,html:'<p>'+esc(p.r)+'</p><div class="lab">traits</div><p>'+((p.tr||[]).join(', ')||'\u2014')+'</p><div class="lab">story</div><p>'+esc(p.s)+'</p><div class="lab">scripture</div><p class="ref">'+(p.f||[]).slice(0,30).join(' \u00b7 ')+'</p>'+GL})}
-  else if(k==='places'){const p=D.places[i];openDetail({title:p.n,html:'<div class="lab">type</div><p>'+esc(p.t)+'</p><div class="lab">description</div><p>'+esc(p.d)+'</p><div class="lab">scripture</div><p class="ref">'+(p.f||[]).slice(0,30).join(' \u00b7 ')+'</p>'+GL})}
-  else if(k==='themes'){const t=D.themes[i];openDetail({title:t.n,html:'<div class="lab">category</div><p>'+esc(t.c)+'</p><div class="lab">meaning</div><p>'+esc(t.d)+'</p><div class="lab">scripture</div><p class="ref">'+(t.f||[]).slice(0,30).join(' \u00b7 ')+'</p>'+GL})}
+  if(k==='kv'){const v=D.kv[i];openDetail({title:v.ref,html:'<p class="verse">\u201c'+esc(v.tx)+'\u201d</p><div class="lab">zašto je važan</div><p>'+esc(v.w)+'</p>'})}
+  else if(k==='tl'){const t=window.__tlF()[i];openDetail({title:t.d||'Event',html:'<p>'+esc(t.e)+'</p><div class="lab">izvor</div><p style="color:var(--dim)">'+esc(t.b)+' · potvrđenost: '+esc(t.c)+'</p>'})}
+  else if(k==='people'){const p=D.people[i];openDetail({title:p.n,html:'<p>'+esc(p.r)+'</p><div class="lab">crte</div><p>'+((p.tr||[]).join(', ')||'\u2014')+'</p><div class="lab">priča</div><p>'+esc(p.s)+'</p><div class="lab">Sveto Pismo</div><p class="ref">'+(p.f||[]).slice(0,30).join(' \u00b7 ')+'</p>'+GL})}
+  else if(k==='places'){const p=D.places[i];openDetail({title:p.n,html:'<div class="lab">vrsta</div><p>'+esc(p.t)+'</p><div class="lab">opis</div><p>'+esc(p.d)+'</p><div class="lab">Sveto Pismo</div><p class="ref">'+(p.f||[]).slice(0,30).join(' \u00b7 ')+'</p>'+GL})}
+  else if(k==='themes'){const t=D.themes[i];openDetail({title:t.n,html:'<div class="lab">kategorija</div><p>'+esc(t.c)+'</p><div class="lab">značenje</div><p>'+esc(t.d)+'</p><div class="lab">Sveto Pismo</div><p class="ref">'+(t.f||[]).slice(0,30).join(' \u00b7 ')+'</p>'+GL})}
 });
 </script></body></html>
